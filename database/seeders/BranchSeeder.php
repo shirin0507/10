@@ -19,6 +19,8 @@ class BranchSeeder extends Seeder
             'Pre Intermediate',
             'Intermediate',
             'Upper Intermediate',
+            'Advanced',
+            'Practice',
         ];
         foreach ($objs as $obj) {
             Branch::create(['name' => $obj]);
