@@ -13,26 +13,26 @@ class ClassroomSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run()
+    public function run(): void
     {
         $locations = Location::pluck('id')->toArray();
         $classrooms = [
-            ['name' => 'A1'],
-            ['name' => 'B3'],
-            ['name' => 'C7'],
-            ['name' => 'D5'],
-            ['name' => 'D4'],
-            ['name' => 'A5'],
-            ['name' => 'A10'],
-            ['name' => 'B13'],
-            ['name' => 'B2'],
-            ['name' => 'A4'],
+            'A1',
+            'A2',
+            'A3',
+            'A4',
+            'A5',
+            'B1',
+            'B2',
+            'B3',
+            'B4',
+            'B5',
         ];
 
         foreach ($classrooms as $classroomData) {
             Classroom::create([
-                'name' => $classroomData['name'],
-                'location_id' => Location::inRandomOrder()->first()->id,
+                'name' => $classroomData,
+                'location_id' => $locations->id,
             ]);
         }
     }
