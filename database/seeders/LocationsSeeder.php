@@ -6,25 +6,23 @@ use App\Models\Location;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-
-
 class LocationsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    public function run()
+    public function run(): void
     {
         $objs = [
-            'Mir-1',
+            '"Turmenistan" shopping center',
+            'Parahat_1',
             'Anew',
-            'Univermag',
         ];
 
         foreach ($objs as $obj) {
-            Location::create(['name' => $obj]);
+            Location::create([
+                'name' => $obj,
+                ]);
         }
-
-        //
     }
 }
