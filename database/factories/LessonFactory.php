@@ -4,7 +4,6 @@ namespace Database\Factories;
 
 use App\Models\Branch;
 use App\Models\Classroom;
-use App\Models\Lesson;
 use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -13,14 +12,15 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class LessonFactory extends Factory
 {
-    protected $model = Lesson::class;
-
     public function definition()
     {
+        $classroom = Classroom::inRandomOrder()->first();
+        $branch = Branch::inRandomOrder()->first();
+        $teacher = Teacher::inRandomOrder()->first();
         return [
-            'classroom_id'=>Classroom::inRandomOrder()->first()->id,
-            'branch_id'=>Branch::inRandomOrder()->first()->id,
-            'teacher_id'=>Teacher::inRandomOrder()->first()->id,
+            'classroom_id '=> $classroom->id,
+            'branch_id' => $branch->id,
+            'teacher_id' => $teacher->id,
         ];
     }
 }
